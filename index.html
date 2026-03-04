@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Tuinen in Demen – Siertuinen, Theeschenkerij &amp; Dagje Uit</title>
+  <meta name="description" content="Bezoek De Tuinen in Demen: 1,5 hectare aan prachtige siertuinen met theeschenkerij, tussen Nijmegen en Den Bosch. Open van april t/m augustus.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://analytics.code-lieshout.nl/script.js" data-website-id="e9d875c7-cdd6-433c-85b3-e9ad261d133c"></script>
+  <link rel="icon" href="images/logo.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+    html { scroll-behavior: smooth; }
+    .organic-blob { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    .organic-card { border-radius: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(6,78,59,0.4), rgba(6,78,59,0.7)); }
+    .nav-glass { backdrop-filter: blur(12px); background: rgba(255,255,255,0.85); }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; justify-content: center; align-items: center; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 16px; }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: '#059669',
+            'forest-dark': '#064E3B',
+            'forest-light': '#10B981',
+            leaf: '#34D399',
+            gold: '#FBBF24',
+            cream: '#ECFDF5',
+            'warm-cream': '#F0FDF4',
+            earth: '#8B7355',
+          },
+          fontFamily: {
+            serif: ['Lora', 'serif'],
+            sans: ['Raleway', 'sans-serif'],
+          },
+          borderRadius: {
+            'organic': '24px',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans text-forest-dark bg-cream">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 nav-glass border-b border-forest/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="images/logo.png" alt="De Tuinen in Demen logo" class="h-10 sm:h-12">
+        </a>
+        <div class="hidden lg:flex items-center gap-6">
+          <a href="de-tuinen.html" class="text-forest-dark hover:text-forest transition-colors duration-200 font-medium cursor-pointer">De Tuinen</a>
+          <a href="theeschenkerij.html" class="text-forest-dark hover:text-forest transition-colors duration-200 font-medium cursor-pointer">Theeschenkerij</a>
+          <a href="activiteiten.html" class="text-forest-dark hover:text-forest transition-colors duration-200 font-medium cursor-pointer">Activiteiten</a>
+          <a href="groepsbezoek.html" class="text-forest-dark hover:text-forest transition-colors duration-200 font-medium cursor-pointer">Groepsbezoek</a>
+          <a href="lezingen.html" class="text-forest-dark hover:text-forest transition-colors duration-200 font-medium cursor-pointer">Lezingen</a>
+          <a href="boeken.html" class="text-forest-dark hover:text-forest transition-colors duration-200 font-medium cursor-pointer">Boeken</a>
+          <a href="contact.html" class="bg-forest text-white px-5 py-2.5 rounded-organic hover:bg-forest-dark transition-colors duration-200 font-medium cursor-pointer">Contact</a>
+        </div>
+        <button id="menuBtn" class="lg:hidden p-2 cursor-pointer" aria-label="Menu openen">
+          <svg class="w-7 h-7 text-forest-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+    <div class="absolute inset-0 bg-black/40" id="menuOverlay"></div>
+    <div class="absolute right-0 top-0 h-full w-72 bg-white shadow-xl p-6 flex flex-col gap-4">
+      <button id="closeMenu" class="self-end p-2 cursor-pointer" aria-label="Menu sluiten">
+        <svg class="w-7 h-7 text-forest-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <a href="index.html" class="text-forest-dark hover:text-forest font-medium py-2 border-b border-gray-100 cursor-pointer">Home</a>
+      <a href="de-tuinen.html" class="text-forest-dark hover:text-forest font-medium py-2 border-b border-gray-100 cursor-pointer">De Tuinen</a>
+      <a href="theeschenkerij.html" class="text-forest-dark hover:text-forest font-medium py-2 border-b border-gray-100 cursor-pointer">Theeschenkerij</a>
+      <a href="activiteiten.html" class="text-forest-dark hover:text-forest font-medium py-2 border-b border-gray-100 cursor-pointer">Activiteiten</a>
+      <a href="groepsbezoek.html" class="text-forest-dark hover:text-forest font-medium py-2 border-b border-gray-100 cursor-pointer">Groepsbezoek</a>
+      <a href="lezingen.html" class="text-forest-dark hover:text-forest font-medium py-2 border-b border-gray-100 cursor-pointer">Lezingen</a>
+      <a href="boeken.html" class="text-forest-dark hover:text-forest font-medium py-2 border-b border-gray-100 cursor-pointer">Boeken</a>
+      <a href="contact.html" class="bg-forest text-white px-5 py-3 rounded-organic text-center hover:bg-forest-dark transition-colors duration-200 font-medium cursor-pointer mt-2">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <img src="images/hero.jpg" alt="De Tuinen in Demen - prachtige siertuinen" class="absolute inset-0 w-full h-full object-cover">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative z-10 text-center px-4 max-w-4xl">
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-tight mb-6">De Tuinen in Demen</h1>
+      <p class="text-white/90 text-lg sm:text-xl lg:text-2xl font-light mb-8 max-w-2xl mx-auto">Een unieke beleving voor de ware tuinliefhebber, tussen Nijmegen en Den Bosch</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="de-tuinen.html" class="bg-gold text-forest-dark px-8 py-3.5 rounded-organic font-semibold hover:bg-yellow-300 transition-colors duration-200 cursor-pointer text-lg">Ontdek de Tuinen</a>
+        <a href="contact.html" class="border-2 border-white text-white px-8 py-3.5 rounded-organic font-semibold hover:bg-white/20 transition-colors duration-200 cursor-pointer text-lg">Plan je Bezoek</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Openingstijden balk -->
+  <section class="bg-forest text-white py-4">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-center">
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="font-medium">Do &amp; zo 11:00 – 17:00</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="font-medium">12 april – 31 augustus</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <span class="font-medium">Entree € 6,00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-16 bg-warm-cream">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+      <div class="fade-in">
+        <p class="text-4xl lg:text-5xl font-serif font-bold text-forest">1,5</p>
+        <p class="text-forest-dark/70 mt-2">Hectare tuinen</p>
+      </div>
+      <div class="fade-in">
+        <p class="text-4xl lg:text-5xl font-serif font-bold text-forest">20+</p>
+        <p class="text-forest-dark/70 mt-2">Verschillende siertuinen</p>
+      </div>
+      <div class="fade-in">
+        <p class="text-4xl lg:text-5xl font-serif font-bold text-forest">1000+</p>
+        <p class="text-forest-dark/70 mt-2">Rozen</p>
+      </div>
+      <div class="fade-in">
+        <p class="text-4xl lg:text-5xl font-serif font-bold text-forest">4.7</p>
+        <p class="text-forest-dark/70 mt-2">⭐ Google rating</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Over de Tuinen -->
+  <section class="py-20 px-4">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <h2 class="font-serif text-3xl lg:text-4xl font-bold text-forest-dark mb-6">Een wandeling vol verwondering</h2>
+        <p class="text-forest-dark/80 text-lg leading-relaxed mb-4">De Tuinen in Demen zijn anderhalve hectare groot en bestaan uit verschillende delen die elk hun eigen kleur en sfeer hebben. De combinaties van kleuren zijn soms subtiel, soms uitbundig maar steeds uitgekiend en niet alledaags.</p>
+        <p class="text-forest-dark/80 text-lg leading-relaxed mb-6">Het schouwspel van lijnen en doorkijkjes is verrassend en indrukwekkend. Kennis van planten en gevoel voor kleur zijn hier verenigd met sterk ruimtelijk inzicht en technische ervaring.</p>
+        <a href="de-tuinen.html" class="inline-flex items-center gap-2 bg-forest text-white px-6 py-3 rounded-organic font-semibold hover:bg-forest-dark transition-colors duration-200 cursor-pointer">
+          Meer over de tuinen
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <div class="fade-in">
+        <img src="images/tuin3.jpg" alt="Kleurrijke borders in De Tuinen in Demen" class="w-full rounded-organic object-cover h-80 lg:h-96" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Seizoenen -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="font-serif text-3xl lg:text-4xl font-bold text-center text-forest-dark mb-4 fade-in">Elk seizoen een nieuw schouwspel</h2>
+      <p class="text-center text-forest-dark/70 text-lg mb-12 max-w-2xl mx-auto fade-in">Van duizenden tulpen in het voorjaar tot siergrassen in de nazomer — er is altijd iets bijzonders te zien.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="organic-card bg-cream p-8 hover:shadow-lg transition-shadow duration-300 fade-in cursor-default">
+          <div class="w-14 h-14 bg-forest/10 rounded-full flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-forest-dark mb-3">Voorjaar</h3>
+          <p class="text-forest-dark/70 leading-relaxed">Duizenden laatbloeiende tulpen op kleur gecombineerd met voorjaarsbloeiende planten. 20.000 bollen zorgen voor een waar kleurenspektakel.</p>
+        </div>
+        <div class="organic-card bg-cream p-8 hover:shadow-lg transition-shadow duration-300 fade-in cursor-default">
+          <div class="w-14 h-14 bg-forest/10 rounded-full flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-forest-dark mb-3">Zomer</h3>
+          <p class="text-forest-dark/70 leading-relaxed">Meer dan honderd soorten Iris germanica, weelderige pioenrozen en meer dan duizend rozen. Prachtig om te zien en heerlijk om te ruiken.</p>
+        </div>
+        <div class="organic-card bg-cream p-8 hover:shadow-lg transition-shadow duration-300 fade-in cursor-default">
+          <div class="w-14 h-14 bg-forest/10 rounded-full flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-forest-dark mb-3">Nazomer</h3>
+          <p class="text-forest-dark/70 leading-relaxed">Asters in alle kleuren, siergrassen met prachtige bladverkleuring en éénjarige planten die tot diep in het najaar bloeien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Theeschenkerij -->
+  <section class="py-20 px-4">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1 fade-in">
+        <img src="images/theeschenkerij.jpg" alt="Theeschenkerij De Tuinen in Demen" class="w-full rounded-organic object-cover h-80 lg:h-96" loading="lazy">
+      </div>
+      <div class="order-1 lg:order-2 fade-in">
+        <h2 class="font-serif text-3xl lg:text-4xl font-bold text-forest-dark mb-6">Gezellige Theeschenkerij</h2>
+        <p class="text-forest-dark/80 text-lg leading-relaxed mb-4">Geniet van het frisse appelsap van eigen appels, een lekker kopje cappuccino of biologische thee van Numi. Er is een ruime keuze aan heerlijk gebak en goed belegde broodjes van de warme bakker.</p>
+        <p class="text-forest-dark/80 text-lg leading-relaxed mb-6">De verrukkelijke aardbeientaart is beroemd! Op het terras zit je omringd door bijzondere kuipplanten.</p>
+        <a href="theeschenkerij.html" class="inline-flex items-center gap-2 bg-forest text-white px-6 py-3 rounded-organic font-semibold hover:bg-forest-dark transition-colors duration-200 cursor-pointer">
+          Meer over de theeschenkerij
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galerij -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="font-serif text-3xl lg:text-4xl font-bold text-center text-forest-dark mb-4 fade-in">Een kijkje in de tuinen</h2>
+      <p class="text-center text-forest-dark/70 text-lg mb-12 fade-in">Ontdek de prachtige kleurencombinaties en sfeervolle hoekjes</p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <img src="images/tuin1.jpg" alt="Siertuin met kleurrijke bloemen" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+        <img src="images/tuin2.jpg" alt="Bloemenborder in De Tuinen" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+        <img src="images/tuin5.jpg" alt="Doorkijkje in de tuin" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+        <img src="images/tuin6.jpg" alt="Rozen en vaste planten" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+        <img src="images/tuin7.jpg" alt="Siergrassen en borders" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+        <img src="images/google/google_place_1.jpg" alt="Tuinbezoek" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+        <img src="images/google/google_place_2.jpg" alt="Siertuinen" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+        <img src="images/google/google_place_3.jpg" alt="Bloemen in de tuin" class="w-full h-48 md:h-56 object-cover rounded-organic cursor-pointer hover:scale-105 transition-transform duration-300 gallery-img" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="font-serif text-3xl lg:text-4xl font-bold text-center text-forest-dark mb-4 fade-in">Wat bezoekers zeggen</h2>
+      <p class="text-center text-forest text-lg font-semibold mb-12 fade-in">⭐ 4.7 uit 5 — 160 Google reviews</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="organic-card bg-white p-8 fade-in">
+          <div class="flex gap-1 mb-4 text-gold">★★★★★</div>
+          <p class="text-forest-dark/80 leading-relaxed mb-4 italic">"Wat een geweldige tuin is dit! Overal is goed over nagedacht. Prachtig geschoren heggen en mooie kleurencombinaties."</p>
+          <p class="font-semibold text-forest-dark">René Gerritzen</p>
+        </div>
+        <div class="organic-card bg-white p-8 fade-in">
+          <div class="flex gap-1 mb-4 text-gold">★★★★★</div>
+          <p class="text-forest-dark/80 leading-relaxed mb-4 italic">"Stuk kleurrijker dan de tuinen van Appeltern rond aanloop zomer. Lekker om een potje koffie te drinken op het terras."</p>
+          <p class="font-semibold text-forest-dark">Marijn Grevers</p>
+        </div>
+        <div class="organic-card bg-white p-8 fade-in">
+          <div class="flex gap-1 mb-4 text-gold">★★★★★</div>
+          <p class="text-forest-dark/80 leading-relaxed mb-4 italic">"Schitterende tuin, je ziet de liefde voor de tuin. Mooi theehuis, lekkere broodjes en de gebakjes zijn top!"</p>
+          <p class="font-semibold text-forest-dark">Jan Dijk</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-forest text-white text-center">
+    <div class="max-w-3xl mx-auto px-4 fade-in">
+      <h2 class="font-serif text-3xl lg:text-4xl font-bold mb-6">Kom genieten van de tuinen</h2>
+      <p class="text-white/80 text-lg mb-8">De Tuinen in Demen zijn vanaf 12 april 2026 elke donderdag en zondag open van 11:00 tot 17:00 uur. Groepen kunnen ook op andere dagen terecht.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="bg-gold text-forest-dark px-8 py-3.5 rounded-organic font-semibold hover:bg-yellow-300 transition-colors duration-200 cursor-pointer text-lg">Neem Contact Op</a>
+        <a href="groepsbezoek.html" class="border-2 border-white text-white px-8 py-3.5 rounded-organic font-semibold hover:bg-white/20 transition-colors duration-200 cursor-pointer text-lg">Groepsbezoek</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-forest-dark text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12">
+      <div>
+        <img src="images/logo.png" alt="De Tuinen in Demen" class="h-12 mb-4 brightness-200">
+        <p class="text-white/70 leading-relaxed">Anderhalve hectare siertuinen met theeschenkerij in het hart van Brabant.</p>
+      </div>
+      <div>
+        <h4 class="font-serif font-bold text-lg mb-4">Ontdek</h4>
+        <ul class="space-y-2 text-white/70">
+          <li><a href="de-tuinen.html" class="hover:text-leaf transition-colors duration-200 cursor-pointer">De Tuinen</a></li>
+          <li><a href="theeschenkerij.html" class="hover:text-leaf transition-colors duration-200 cursor-pointer">Theeschenkerij</a></li>
+          <li><a href="activiteiten.html" class="hover:text-leaf transition-colors duration-200 cursor-pointer">Activiteiten</a></li>
+          <li><a href="groepsbezoek.html" class="hover:text-leaf transition-colors duration-200 cursor-pointer">Groepsbezoek</a></li>
+          <li><a href="lezingen.html" class="hover:text-leaf transition-colors duration-200 cursor-pointer">Lezingen</a></li>
+          <li><a href="boeken.html" class="hover:text-leaf transition-colors duration-200 cursor-pointer">Boeken</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-serif font-bold text-lg mb-4">Contact</h4>
+        <ul class="space-y-2 text-white/70">
+          <li class="flex items-start gap-2">
+            <svg class="w-5 h-5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Kleine Poelstraat 13, 5354 KD Demen
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="tel:0486413442" class="hover:text-leaf transition-colors duration-200 cursor-pointer">0486 – 413 442</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:info@detuinenindemen.nl" class="hover:text-leaf transition-colors duration-200 cursor-pointer">info@detuinenindemen.nl</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <a href="https://nl-be.facebook.com/detuinenindemen/" target="_blank" rel="noopener" class="hover:text-leaf transition-colors duration-200 cursor-pointer">Facebook</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 text-center text-white/50 text-sm">
+      <p>&copy; 2026 De Tuinen in Demen — Fridtjof Bremer &amp; Martje van den Bosch</p>
+      <p class="mt-1">Gebouwd door <a href="https://www.code-lieshout.nl" class="hover:text-leaf transition-colors duration-200 cursor-pointer">Code Lieshout</a></p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="absolute top-4 right-4 text-white text-4xl cursor-pointer z-10" id="closeLightbox">&times;</button>
+    <img src="" alt="Vergrote foto" id="lightboxImg">
+  </div>
+
+  <script>
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+    closeMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    menuOverlay.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+    document.getElementById('closeLightbox').addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('active'); });
+
+    // Fade in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
